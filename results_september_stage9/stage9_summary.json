@@ -1,0 +1,445 @@
+{
+  "stage": 9,
+  "objective": "RETROSPECTIVE synthetic ablation; no observed transmission or psychological effect",
+  "dataset": {
+    "proxy_graph_nodes": 25,
+    "undirected_content_overlap_edges": 222,
+    "channel_day_records": 663,
+    "matched_signal_channel_labels": 25
+  },
+  "design": {
+    "context_dates": [
+      "2026-09-10",
+      "2026-09-18",
+      "2026-09-25",
+      "2026-09-30"
+    ],
+    "context_feature_window": "previous 7 calendar days ONLY",
+    "topology_warning": "Static proxy graph from ALL September; graph is not time-forward, so NO chronological out-of-sample claim.",
+    "budget": 4,
+    "replications_per_context_scenario": 120,
+    "independent_synthetic_worlds": 2400,
+    "seed": 2026,
+    "base_probability_synthetic": 0.035,
+    "coefficient_magnitude_hypothetical": 0.6,
+    "full_feedback_after_each_seed": true,
+    "same_world_across_policies": true,
+    "policies": [
+      "adaptive_temporal_text",
+      "adaptive_time_only",
+      "adaptive_text_only",
+      "adaptive_graph_only",
+      "static_graph_greedy",
+      "random"
+    ],
+    "scenarios": [
+      {
+        "name": "combined_assumption",
+        "time_coefficient": 0.6,
+        "text_coefficient": 0.6
+      },
+      {
+        "name": "time_only_assumption",
+        "time_coefficient": 0.6,
+        "text_coefficient": 0.0
+      },
+      {
+        "name": "text_only_assumption",
+        "time_coefficient": 0.0,
+        "text_coefficient": 0.6
+      },
+      {
+        "name": "graph_only_control",
+        "time_coefficient": 0.0,
+        "text_coefficient": 0.0
+      },
+      {
+        "name": "inverse_text_control",
+        "time_coefficient": 0.6,
+        "text_coefficient": -0.6
+      }
+    ]
+  },
+  "maximum_budget_comparison": [
+    {
+      "scenario": "combined_assumption",
+      "algorithm": "adaptive_temporal_text",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 9.13333,
+      "ci95_lower": 8.84541,
+      "ci95_upper": 9.42125,
+      "gain_vs_adaptive_graph": 0.31042,
+      "gain_ci95_lower": 0.08295,
+      "gain_ci95_upper": 0.53788
+    },
+    {
+      "scenario": "combined_assumption",
+      "algorithm": "adaptive_time_only",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 9.28958,
+      "ci95_lower": 9.00672,
+      "ci95_upper": 9.57245,
+      "gain_vs_adaptive_graph": 0.46667,
+      "gain_ci95_lower": 0.26594,
+      "gain_ci95_upper": 0.66739
+    },
+    {
+      "scenario": "combined_assumption",
+      "algorithm": "adaptive_text_only",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.89583,
+      "ci95_lower": 8.61214,
+      "ci95_upper": 9.17953,
+      "gain_vs_adaptive_graph": 0.07292,
+      "gain_ci95_lower": -0.10659,
+      "gain_ci95_upper": 0.25242
+    },
+    {
+      "scenario": "combined_assumption",
+      "algorithm": "adaptive_graph_only",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.82292,
+      "ci95_lower": 8.53325,
+      "ci95_upper": 9.11259,
+      "gain_vs_adaptive_graph": 0.0,
+      "gain_ci95_lower": 0.0,
+      "gain_ci95_upper": 0.0
+    },
+    {
+      "scenario": "combined_assumption",
+      "algorithm": "static_graph_greedy",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.01042,
+      "ci95_lower": 7.75122,
+      "ci95_upper": 8.26961,
+      "gain_vs_adaptive_graph": -0.8125,
+      "gain_ci95_lower": -1.01684,
+      "gain_ci95_upper": -0.60816
+    },
+    {
+      "scenario": "combined_assumption",
+      "algorithm": "random",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 7.72083,
+      "ci95_lower": 7.45302,
+      "ci95_upper": 7.98864,
+      "gain_vs_adaptive_graph": -1.10208,
+      "gain_ci95_lower": -1.37998,
+      "gain_ci95_upper": -0.82419
+    },
+    {
+      "scenario": "time_only_assumption",
+      "algorithm": "adaptive_temporal_text",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 9.09583,
+      "ci95_lower": 8.7995,
+      "ci95_upper": 9.39217,
+      "gain_vs_adaptive_graph": 0.17917,
+      "gain_ci95_lower": -0.03223,
+      "gain_ci95_upper": 0.39056
+    },
+    {
+      "scenario": "time_only_assumption",
+      "algorithm": "adaptive_time_only",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 9.00833,
+      "ci95_lower": 8.72144,
+      "ci95_upper": 9.29522,
+      "gain_vs_adaptive_graph": 0.09167,
+      "gain_ci95_lower": -0.09997,
+      "gain_ci95_upper": 0.2833
+    },
+    {
+      "scenario": "time_only_assumption",
+      "algorithm": "adaptive_text_only",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.95,
+      "ci95_lower": 8.65858,
+      "ci95_upper": 9.24142,
+      "gain_vs_adaptive_graph": 0.03333,
+      "gain_ci95_lower": -0.15199,
+      "gain_ci95_upper": 0.21865
+    },
+    {
+      "scenario": "time_only_assumption",
+      "algorithm": "adaptive_graph_only",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.91667,
+      "ci95_lower": 8.63017,
+      "ci95_upper": 9.20317,
+      "gain_vs_adaptive_graph": 0.0,
+      "gain_ci95_lower": 0.0,
+      "gain_ci95_upper": 0.0
+    },
+    {
+      "scenario": "time_only_assumption",
+      "algorithm": "static_graph_greedy",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.00208,
+      "ci95_lower": 7.74632,
+      "ci95_upper": 8.25784,
+      "gain_vs_adaptive_graph": -0.91458,
+      "gain_ci95_lower": -1.10724,
+      "gain_ci95_upper": -0.72192
+    },
+    {
+      "scenario": "time_only_assumption",
+      "algorithm": "random",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 7.92917,
+      "ci95_lower": 7.66239,
+      "ci95_upper": 8.19595,
+      "gain_vs_adaptive_graph": -0.9875,
+      "gain_ci95_lower": -1.27619,
+      "gain_ci95_upper": -0.69881
+    },
+    {
+      "scenario": "text_only_assumption",
+      "algorithm": "adaptive_temporal_text",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.7625,
+      "ci95_lower": 8.47652,
+      "ci95_upper": 9.04848,
+      "gain_vs_adaptive_graph": -0.0625,
+      "gain_ci95_lower": -0.26892,
+      "gain_ci95_upper": 0.14392
+    },
+    {
+      "scenario": "text_only_assumption",
+      "algorithm": "adaptive_time_only",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.79167,
+      "ci95_lower": 8.51116,
+      "ci95_upper": 9.07217,
+      "gain_vs_adaptive_graph": -0.03333,
+      "gain_ci95_lower": -0.21483,
+      "gain_ci95_upper": 0.14816
+    },
+    {
+      "scenario": "text_only_assumption",
+      "algorithm": "adaptive_text_only",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.92917,
+      "ci95_lower": 8.65062,
+      "ci95_upper": 9.20771,
+      "gain_vs_adaptive_graph": 0.10417,
+      "gain_ci95_lower": -0.0773,
+      "gain_ci95_upper": 0.28563
+    },
+    {
+      "scenario": "text_only_assumption",
+      "algorithm": "adaptive_graph_only",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.825,
+      "ci95_lower": 8.54241,
+      "ci95_upper": 9.10759,
+      "gain_vs_adaptive_graph": 0.0,
+      "gain_ci95_lower": 0.0,
+      "gain_ci95_upper": 0.0
+    },
+    {
+      "scenario": "text_only_assumption",
+      "algorithm": "static_graph_greedy",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 7.9125,
+      "ci95_lower": 7.67149,
+      "ci95_upper": 8.15351,
+      "gain_vs_adaptive_graph": -0.9125,
+      "gain_ci95_lower": -1.09831,
+      "gain_ci95_upper": -0.72669
+    },
+    {
+      "scenario": "text_only_assumption",
+      "algorithm": "random",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 7.55833,
+      "ci95_lower": 7.31601,
+      "ci95_upper": 7.80065,
+      "gain_vs_adaptive_graph": -1.26667,
+      "gain_ci95_lower": -1.56363,
+      "gain_ci95_upper": -0.96971
+    },
+    {
+      "scenario": "graph_only_control",
+      "algorithm": "adaptive_temporal_text",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.44167,
+      "ci95_lower": 8.18652,
+      "ci95_upper": 8.69682,
+      "gain_vs_adaptive_graph": -0.275,
+      "gain_ci95_lower": -0.47814,
+      "gain_ci95_upper": -0.07186
+    },
+    {
+      "scenario": "graph_only_control",
+      "algorithm": "adaptive_time_only",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.5375,
+      "ci95_lower": 8.28219,
+      "ci95_upper": 8.79281,
+      "gain_vs_adaptive_graph": -0.17917,
+      "gain_ci95_lower": -0.37735,
+      "gain_ci95_upper": 0.01901
+    },
+    {
+      "scenario": "graph_only_control",
+      "algorithm": "adaptive_text_only",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.60625,
+      "ci95_lower": 8.34829,
+      "ci95_upper": 8.86421,
+      "gain_vs_adaptive_graph": -0.11042,
+      "gain_ci95_lower": -0.28495,
+      "gain_ci95_upper": 0.06412
+    },
+    {
+      "scenario": "graph_only_control",
+      "algorithm": "adaptive_graph_only",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.71667,
+      "ci95_lower": 8.4603,
+      "ci95_upper": 8.97303,
+      "gain_vs_adaptive_graph": 0.0,
+      "gain_ci95_lower": 0.0,
+      "gain_ci95_upper": 0.0
+    },
+    {
+      "scenario": "graph_only_control",
+      "algorithm": "static_graph_greedy",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 7.92292,
+      "ci95_lower": 7.67964,
+      "ci95_upper": 8.16619,
+      "gain_vs_adaptive_graph": -0.79375,
+      "gain_ci95_lower": -1.00099,
+      "gain_ci95_upper": -0.58651
+    },
+    {
+      "scenario": "graph_only_control",
+      "algorithm": "random",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 7.51667,
+      "ci95_lower": 7.2708,
+      "ci95_upper": 7.76253,
+      "gain_vs_adaptive_graph": -1.2,
+      "gain_ci95_lower": -1.48475,
+      "gain_ci95_upper": -0.91525
+    },
+    {
+      "scenario": "inverse_text_control",
+      "algorithm": "adaptive_temporal_text",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.62083,
+      "ci95_lower": 8.35028,
+      "ci95_upper": 8.89139,
+      "gain_vs_adaptive_graph": 0.0,
+      "gain_ci95_lower": -0.20083,
+      "gain_ci95_upper": 0.20083
+    },
+    {
+      "scenario": "inverse_text_control",
+      "algorithm": "adaptive_time_only",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.87292,
+      "ci95_lower": 8.6121,
+      "ci95_upper": 9.13373,
+      "gain_vs_adaptive_graph": 0.25208,
+      "gain_ci95_lower": 0.05947,
+      "gain_ci95_upper": 0.4447
+    },
+    {
+      "scenario": "inverse_text_control",
+      "algorithm": "adaptive_text_only",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.44583,
+      "ci95_lower": 8.171,
+      "ci95_upper": 8.72066,
+      "gain_vs_adaptive_graph": -0.175,
+      "gain_ci95_lower": -0.33999,
+      "gain_ci95_upper": -0.01001
+    },
+    {
+      "scenario": "inverse_text_control",
+      "algorithm": "adaptive_graph_only",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 8.62083,
+      "ci95_lower": 8.34243,
+      "ci95_upper": 8.89924,
+      "gain_vs_adaptive_graph": 0.0,
+      "gain_ci95_lower": 0.0,
+      "gain_ci95_upper": 0.0
+    },
+    {
+      "scenario": "inverse_text_control",
+      "algorithm": "static_graph_greedy",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 7.91458,
+      "ci95_lower": 7.66887,
+      "ci95_upper": 8.1603,
+      "gain_vs_adaptive_graph": -0.70625,
+      "gain_ci95_lower": -0.91273,
+      "gain_ci95_upper": -0.49977
+    },
+    {
+      "scenario": "inverse_text_control",
+      "algorithm": "random",
+      "budget": 4,
+      "repetitions": 480,
+      "mean_activated": 7.49167,
+      "ci95_lower": 7.23128,
+      "ci95_upper": 7.75206,
+      "gain_vs_adaptive_graph": -1.12917,
+      "gain_ci95_lower": -1.40148,
+      "gain_ci95_upper": -0.85686
+    }
+  ],
+  "runtime_seconds_by_policy_excluding_common_world_generation": {
+    "adaptive_temporal_text": 0.7164,
+    "adaptive_time_only": 0.7096,
+    "adaptive_text_only": 0.7025,
+    "adaptive_graph_only": 0.7065,
+    "static_graph_greedy": 0.0094,
+    "random": 0.0091
+  },
+  "plot_status": "saved",
+  "warnings": [
+    "Graph edges represent similar news content, NOT observed follows/reposts/exposure.",
+    "All directed arc probabilities and coefficients are imposed, not inferred from Telegram.",
+    "The stage5 text model has weak pilot recall and UNCALIBRATED scores: relative descriptors only.",
+    "ATSM-like method is a one-step weighted-degree heuristic with complete feedback, NOT a validated optimal algorithm.",
+    "An aligned simulation scenario favors use of matching constructed features BY DESIGN; assess graph-only and inverted controls.",
+    "The fixed full-month proxy graph contains information from dates later than early context dates; NOT a forward test.",
+    "95% CIs are approximate over synthetic worlds, not population or human behavior uncertainty.",
+    "Channel-name aliases and two isolated nodes are uncorrected."
+  ],
+  "created_utc": "2026-10-14T12:08:07.998427+00:00"
+}

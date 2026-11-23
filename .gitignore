@@ -1,0 +1,35 @@
+# Local Python environment and IDE files
+.venv/
+venv/
+.idea/
+.vscode/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Raw and processed Telegram texts: download/recreate locally, don't commit
+09_2026.jsonl
+raw_data/
+data/
+results_september/
+results_september_stage2/
+results_september_stage3/annotation_blind.csv
+results_september_stage3/channel_day_markers.csv
+results_september_stage4/
+results_september_stage5/stage5_pilot_predictions.csv
+results_september_stage5/stage5_blind_audit.csv
+results_september_stage6/
+results_september_stage7/stage7_matched_examples.csv
+results_september_stage7/stage7_all_channel_pairs.csv
+results_september_stage7/stage7_daily_matches.csv
+results_september_stage9/stage9_context_features.csv
+results_september_stage10/stage10_context_features.csv
+results_september_stage10/stage10_history_edges.csv
+results_september_stage10/stage10_future_edges_EVAL_ONLY.csv
+
+# Synthetic test runs and generated plots
+smoke_results/
+local_outputs/
+*.joblib
+.DS_Store

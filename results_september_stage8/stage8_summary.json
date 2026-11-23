@@ -1,0 +1,191 @@
+{
+  "stage": 8,
+  "objective": "SYNTHETIC Monte Carlo Independent Cascade comparison on a CONTENT SIMILARITY PROXY graph",
+  "graph": {
+    "nodes_as_channel_labels": 25,
+    "proxy_edges": 222,
+    "undirected_density": 0.74,
+    "overlap_rate_p90": 0.070142,
+    "potential_aliases_not_merged": true
+  },
+  "config": {
+    "seed": 2026,
+    "replications_per_scenario": 120,
+    "offline_planning_mc_worlds": 180,
+    "online_adaptive_mc_worlds_per_decision": 24,
+    "max_seed_budget": 4,
+    "feedback": "full cascade completion after every addition",
+    "randomness": "paired evaluation worlds across all policies in each replication",
+    "arc_trials": "independent directed Bernoulli trials in both directions for each undirected proxy edge",
+    "probability_design": "synthetic p=base_p*(0.5+0.9*min(1, normalized_overlap/p90))*optional_recency; cap .30"
+  },
+  "scenarios": [
+    {
+      "name": "low",
+      "base_synthetic_probability": 0.015,
+      "min_proxy_overlap": 0.0,
+      "recency_factor_enabled": false,
+      "retained_undirected_edges": 222,
+      "directed_trials_per_world": 444,
+      "mean_synthetic_arc_probability": 0.01364
+    },
+    {
+      "name": "middle",
+      "base_synthetic_probability": 0.035,
+      "min_proxy_overlap": 0.0,
+      "recency_factor_enabled": false,
+      "retained_undirected_edges": 222,
+      "directed_trials_per_world": 444,
+      "mean_synthetic_arc_probability": 0.03183
+    },
+    {
+      "name": "high",
+      "base_synthetic_probability": 0.06,
+      "min_proxy_overlap": 0.0,
+      "recency_factor_enabled": false,
+      "retained_undirected_edges": 222,
+      "directed_trials_per_world": 444,
+      "mean_synthetic_arc_probability": 0.05457
+    },
+    {
+      "name": "middle_sparse",
+      "base_synthetic_probability": 0.035,
+      "min_proxy_overlap": 0.025,
+      "recency_factor_enabled": false,
+      "retained_undirected_edges": 121,
+      "directed_trials_per_world": 242,
+      "mean_synthetic_arc_probability": 0.03905
+    },
+    {
+      "name": "middle_recency",
+      "base_synthetic_probability": 0.035,
+      "min_proxy_overlap": 0.0,
+      "recency_factor_enabled": true,
+      "retained_undirected_edges": 222,
+      "directed_trials_per_world": 444,
+      "mean_synthetic_arc_probability": 0.02895
+    }
+  ],
+  "middle_scenario_at_max_budget": [
+    {
+      "scenario": "middle",
+      "algorithm": "adaptive_mc",
+      "budget": 4,
+      "replications": 120,
+      "mean_activated": 8.55,
+      "ci95_lower": 7.9651,
+      "ci95_upper": 9.1349,
+      "fraction_activated": 0.342,
+      "mean_gain_vs_static_greedy": 0.51667,
+      "gain_ci95_lower": -0.05055,
+      "gain_ci95_upper": 1.08389
+    },
+    {
+      "scenario": "middle",
+      "algorithm": "adaptive_degree",
+      "budget": 4,
+      "replications": 120,
+      "mean_activated": 9.11667,
+      "ci95_lower": 8.56816,
+      "ci95_upper": 9.66518,
+      "fraction_activated": 0.36467,
+      "mean_gain_vs_static_greedy": 1.08333,
+      "gain_ci95_lower": 0.55613,
+      "gain_ci95_upper": 1.61054
+    },
+    {
+      "scenario": "middle",
+      "algorithm": "static_greedy",
+      "budget": 4,
+      "replications": 120,
+      "mean_activated": 8.03333,
+      "ci95_lower": 7.51834,
+      "ci95_upper": 8.54833,
+      "fraction_activated": 0.32133,
+      "mean_gain_vs_static_greedy": 0.0,
+      "gain_ci95_lower": 0.0,
+      "gain_ci95_upper": 0.0
+    },
+    {
+      "scenario": "middle",
+      "algorithm": "degree",
+      "budget": 4,
+      "replications": 120,
+      "mean_activated": 8.375,
+      "ci95_lower": 7.89846,
+      "ci95_upper": 8.85154,
+      "fraction_activated": 0.335,
+      "mean_gain_vs_static_greedy": 0.34167,
+      "gain_ci95_lower": -0.14239,
+      "gain_ci95_upper": 0.82573
+    },
+    {
+      "scenario": "middle",
+      "algorithm": "random",
+      "budget": 4,
+      "replications": 120,
+      "mean_activated": 7.36667,
+      "ci95_lower": 6.86867,
+      "ci95_upper": 7.86466,
+      "fraction_activated": 0.29467,
+      "mean_gain_vs_static_greedy": -0.66667,
+      "gain_ci95_lower": -1.27035,
+      "gain_ci95_upper": -0.06298
+    }
+  ],
+  "chart_status": "saved",
+  "middle_scenario_compute_costs": [
+    {
+      "scenario": "middle",
+      "algorithm": "adaptive_mc",
+      "offline_planning_seconds": 0.0,
+      "evaluation_and_decisions_seconds": 0.5361,
+      "total_excluding_common_world_generation_seconds": 0.5361,
+      "replications": 120
+    },
+    {
+      "scenario": "middle",
+      "algorithm": "adaptive_degree",
+      "offline_planning_seconds": 0.0,
+      "evaluation_and_decisions_seconds": 0.02506,
+      "total_excluding_common_world_generation_seconds": 0.02506,
+      "replications": 120
+    },
+    {
+      "scenario": "middle",
+      "algorithm": "static_greedy",
+      "offline_planning_seconds": 0.01019,
+      "evaluation_and_decisions_seconds": 0.00062,
+      "total_excluding_common_world_generation_seconds": 0.01081,
+      "replications": 120
+    },
+    {
+      "scenario": "middle",
+      "algorithm": "degree",
+      "offline_planning_seconds": 5e-05,
+      "evaluation_and_decisions_seconds": 0.00046,
+      "total_excluding_common_world_generation_seconds": 0.00051,
+      "replications": 120
+    },
+    {
+      "scenario": "middle",
+      "algorithm": "random",
+      "offline_planning_seconds": 0.0,
+      "evaluation_and_decisions_seconds": 0.00046,
+      "total_excluding_common_world_generation_seconds": 0.00046,
+      "replications": 120
+    }
+  ],
+  "limitations": [
+    "This is not observed Telegram diffusion, forwarding, readership, or human psychological change.",
+    "Edge weights are freely specified sensitivity scenarios and NOT estimated transmission probabilities.",
+    "Only topology from similar content was used. No textual emotion or audience response included.",
+    "This is a prototype of the adaptive selection component, not a validated full ATSM-IM implementation.",
+    "The unusually dense graph and possible channel aliases affect the simulation; compare sparse and low/high regimes.",
+    "CI intervals refer to repeated draws of the SYNTHETIC world, not real-world uncertainty.",
+    "Wall-clock compute costs are machine-dependent, exclude common world generation, and include offline planning where applicable.",
+    "Comparisons share evaluation-world draws; planning simulations are independent of evaluation worlds.",
+    "Source edges do not provide causal direction or within-day publication sequence."
+  ],
+  "generated_utc": "2026-10-14T11:56:08.145243+00:00"
+}

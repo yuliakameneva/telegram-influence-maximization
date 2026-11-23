@@ -1,0 +1,152 @@
+{
+  "stage": 7,
+  "objective": "UNDIRECTED descriptive channel graph from same-UTC-day near-duplicate/similar texts",
+  "input": "C:\\Users\\Juliia\\PycharmProjects\\PythonProject3\\results_september_stage2\\posts_prepared.jsonl",
+  "input_filters": {
+    "duplicate_flag_excluded": 1067,
+    "in_scope": 25852,
+    "prepared_rows": 27815,
+    "too_long_for_scope": 254,
+    "too_short_after_cleanup": 642
+  },
+  "days": 30,
+  "channel_name_labels": 25,
+  "total_cross_channel_candidate_pairs_after_filters": 8667,
+  "total_retained_same_day_post_matches": 8495,
+  "channel_pairs_with_at_least_one_match": 241,
+  "proxy_graph_nodes": 25,
+  "proxy_graph_edges": 222,
+  "isolated_nodes": 2,
+  "connected_component_sizes": [
+    23,
+    1,
+    1
+  ],
+  "parameters": {
+    "tfidf": "daily word 1-2 grams; max_df=0.85; min_df=2; float32",
+    "min_cosine_similarity": 0.7,
+    "min_shorter_text_word_overlap": 0.5,
+    "min_shared_distinct_words": 3,
+    "max_candidates_per_post": 35,
+    "max_tfidf_features_per_day": 25000,
+    "one_to_one_within_channel_pair_and_day": true,
+    "graph_min_matched_pairs_per_channel_pair": 3,
+    "graph_min_distinct_days_per_channel_pair": 2,
+    "min_clean_text_chars": 40,
+    "max_clean_text_chars": 1400
+  },
+  "top_proxy_edges": [
+    {
+      "channel_a": "Times of Ukraine: Новини | Україна",
+      "channel_b": "НОВИНА 🇺🇦",
+      "matched_post_pairs": 319,
+      "shared_days": 30,
+      "mean_tfidf_similarity": 0.9463,
+      "normalized_overlap_rate": 0.201948,
+      "first_matched_day_utc": "2026-09-01",
+      "last_matched_day_utc": "2026-09-30"
+    },
+    {
+      "channel_a": "НОВИНА 🇺🇦",
+      "channel_b": "Україна Online: Новини | Політика",
+      "matched_post_pairs": 281,
+      "shared_days": 30,
+      "mean_tfidf_similarity": 0.9446,
+      "normalized_overlap_rate": 0.176197,
+      "first_matched_day_utc": "2026-09-01",
+      "last_matched_day_utc": "2026-09-30"
+    },
+    {
+      "channel_a": "INSIDER UA | Україна | Новини",
+      "channel_b": "Україна 24/7 - новини",
+      "matched_post_pairs": 221,
+      "shared_days": 30,
+      "mean_tfidf_similarity": 0.9041,
+      "normalized_overlap_rate": 0.191128,
+      "first_matched_day_utc": "2026-09-01",
+      "last_matched_day_utc": "2026-09-30"
+    },
+    {
+      "channel_a": "Times of Ukraine: Новини | Україна",
+      "channel_b": "Україна Online: Новини | Політика",
+      "matched_post_pairs": 174,
+      "shared_days": 30,
+      "mean_tfidf_similarity": 0.8733,
+      "normalized_overlap_rate": 0.118939,
+      "first_matched_day_utc": "2026-09-01",
+      "last_matched_day_utc": "2026-09-30"
+    },
+    {
+      "channel_a": "Наші Новини України",
+      "channel_b": "Український Телеграм 🇺🇦",
+      "matched_post_pairs": 165,
+      "shared_days": 30,
+      "mean_tfidf_similarity": 0.837,
+      "normalized_overlap_rate": 0.147658,
+      "first_matched_day_utc": "2026-09-01",
+      "last_matched_day_utc": "2026-09-30"
+    },
+    {
+      "channel_a": "НОВИНА 🇺🇦",
+      "channel_b": "Український Телеграм 🇺🇦",
+      "matched_post_pairs": 162,
+      "shared_days": 30,
+      "mean_tfidf_similarity": 0.9227,
+      "normalized_overlap_rate": 0.114278,
+      "first_matched_day_utc": "2026-09-01",
+      "last_matched_day_utc": "2026-09-30"
+    },
+    {
+      "channel_a": "Радник",
+      "channel_b": "Україна про Головне",
+      "matched_post_pairs": 160,
+      "shared_days": 30,
+      "mean_tfidf_similarity": 0.8995,
+      "normalized_overlap_rate": 0.189488,
+      "first_matched_day_utc": "2026-09-01",
+      "last_matched_day_utc": "2026-09-30"
+    },
+    {
+      "channel_a": "Сірий Кардинал",
+      "channel_b": "Український Телеграм 🇺🇦",
+      "matched_post_pairs": 144,
+      "shared_days": 28,
+      "mean_tfidf_similarity": 0.8448,
+      "normalized_overlap_rate": 0.106114,
+      "first_matched_day_utc": "2026-09-01",
+      "last_matched_day_utc": "2026-09-30"
+    },
+    {
+      "channel_a": "НОВИНА 🇺🇦",
+      "channel_b": "Труха⚡️Україна",
+      "matched_post_pairs": 135,
+      "shared_days": 29,
+      "mean_tfidf_similarity": 0.888,
+      "normalized_overlap_rate": 0.088411,
+      "first_matched_day_utc": "2026-09-01",
+      "last_matched_day_utc": "2026-09-30"
+    },
+    {
+      "channel_a": "НОВИНА 🇺🇦",
+      "channel_b": "УС: Україна, новини, політика, війна",
+      "matched_post_pairs": 120,
+      "shared_days": 21,
+      "mean_tfidf_similarity": 0.906,
+      "normalized_overlap_rate": 0.072613,
+      "first_matched_day_utc": "2026-09-10",
+      "last_matched_day_utc": "2026-09-30"
+    }
+  ],
+  "limitations": [
+    "Channel nodes are channel LABELS; name changes/aliases might refer to the same real channel.",
+    "Links are SAME-DAY TEXTUAL OVERLAP only, not observed follows, forwards, exposures or actual diffusion.",
+    "A day-level timestamp cannot determine which channel published first within a day.",
+    "Undirected links do not measure influence strength or transmission probability.",
+    "Word TF-IDF under-detects paraphrases and cross-language equivalences; repeated templates may produce spurious matches.",
+    "Selection thresholds and top candidate cap are exploratory and affect topology.",
+    "No reactions, comments, emotional scores or inferred reader states are used in this graph.",
+    "A later Monte Carlo diffusion experiment will test synthetic processes ON this proxy graph, not observed contagion."
+  ],
+  "chart_status": "saved",
+  "generated_utc": "2026-10-14T11:41:25.854633+00:00"
+}
